@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>Validation Station</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="./scripts/main.js" charset="utf-8"></script>
+    <script src="./scripts/main.js" defer charset="utf-8"></script>
   </head>
   <body>
     <div class="jumbotron jumbotron-fluid bg-warning">
@@ -31,7 +31,7 @@
                   Kind
                   <span class="text-danger font-weight-bold">*</span>
                 </label>
-                <select class="form-control" id="train-kind" name="kind">
+                <select class="form-control" id="train-kind" name="kind" required>
                   <option value="">-- Select Kind of Car --</option>
                   <option value="cargo">Cargo</option>
                   <option value="passenger">Passenger</option>
@@ -44,12 +44,12 @@
                   Brand
                   <span class="text-danger font-weight-bold">*</span>
                 </label>
-                <input type="text" class="form-control" id="train-brand" name="brand">
+                <input type="text" class="form-control" id="train-brand" name="brand" required>
               </div>
             </div>
             <div class="form-group">
               <label for="train-seats">Number of Seats</label>
-              <input type="number" class="form-control" id="train-seats" name="seats">
+              <input type="number" class="form-control" id="train-seats" name="seats" min="1">
               <small class="form-text text-muted">
                 <span class="text-warning font-weight-bold">*</span>
                 Only required for Passenger and Observation cars.
@@ -57,6 +57,14 @@
             </div>
             <button type="submit" class="btn btn-dark text-white">Create New Car</button>
           </form>
+          <!-- ERROR FIELD -->
+          <div id="error" class="alert alert-danger d-none">
+            <p>Enter number of passengers</p>
+          </div>
+          <!-- SUCCESS FEILD -->
+          <div id="success" class="alert alert-success d-none">
+            Succesfully created a new car!
+          </div>
         </div>
       </div>
     </div>
